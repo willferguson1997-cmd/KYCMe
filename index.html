@@ -27,7 +27,7 @@ select,input,button {
   border:none;
 }
 button {
-  background:#2563eb;
+  background:#BA9425;
   color:white;
   font-weight:bold;
   cursor:pointer;
@@ -79,24 +79,184 @@ button {
 <script>
 // Updated Basel AML Index sample (2025-aligned values where applicable)
 const baselIndex = {
-"United States": 3.5,
-"Switzerland": 2.8,
-"United Kingdom": 3.2,
-"Germany": 2.9,
-"France": 3.1,
-"Italy": 3.4,
-"United Arab Emirates": 5.9,
-"Russia": 6.5,
-"China": 7.26,
-"India": 5.1,
-"Brazil": 5.7,
-"Mexico": 6.0,
-"South Africa": 6.2,
-"Turkey": 6.8,
-"Afghanistan": 8.5,
-"Iran": 8.7,
-"North Korea": 8.9,
-"Syria": 8.6
+"Myanmar": 8.18
+"Russia": 9.99
+"Haiti": 8.12
+"Democratic Republic of the Congo": 7.63
+"Chad": 7.56
+"Equatorial Guinea": 7.55
+"Venezuela": 7.55
+"Lao PDR": 7.5
+"Gabon": 7.46
+"Central African Republic": 7.44
+"Guinea-Bissau": 7.3
+"Republic of the Congo": 7.27
+"China": 7.26
+"Djibouti": 6.93
+"Niger": 6.84
+"Algeria": 6.82
+"Madagascar": 6.77
+"Turkmenistan": 6.73
+"Cambodia": 6.72
+"Vietnam": 6.69
+"Comoros": 6.67
+"Nicaragua": 6.61
+"Papua New Guinea": 6.61
+"Kenya": 6.6
+"Angola": 6.55
+"Eswatini": 6.51
+"Tajikistan": 6.44
+"Togo": 6.44
+"Guinea": 6.43
+"Suriname": 6.42
+"Cameroon": 6.41
+"Sierra Leone": 6.41
+"Mozambique": 6.38
+"Benin": 6.33
+"Solomon Islands": 6.31
+"Mauritania": 6.29
+"Liberia": 6.26
+"Mali": 6.22
+"Nigeria": 6.18
+"Kuwait": 6.13
+"United Arab Emirates": 6.11
+"Ivory Coast": 6.05
+"Lesotho": 6.04
+"Zimbabwe": 5.99
+"Thailand": 5.98
+"Kyrgyzstan": 5.96
+"Sao Tome and Principe": 5.96
+"Lebanon": 5.93
+"Iraq": 5.9
+"Nepal": 5.88
+"Saudi Arabia": 5.87
+"Panama": 5.83
+"Gambia": 5.76
+"Burkina Faso": 5.75
+"Uganda": 5.72
+"Rwanda": 5.71
+"Belarus": 5.7
+"Ethiopia": 5.68
+"Tonga": 5.67
+"Honduras": 5.66
+"India": 5.66
+"El Salvador": 5.65
+"Turkey": 5.65
+"Pakistan": 5.63
+"South Africa": 5.63
+"Bangladesh": 5.62
+"Malaysia": 5.6
+"Bolivia": 5.58
+"Timor-Leste": 5.58
+"Bosnia and Herzegovina": 5.54
+"Indonesia": 5.52
+"Mexico": 5.52
+"Tanzania": 5.51
+"Bhutan": 5.49
+"Philippines": 5.48
+"Azerbaijan": 5.46
+"Saint Kitts and Nevis": 5.46
+"Cape Verde": 5.45
+"Guatemala": 5.44
+"Malawi": 5.44
+"Brazil": 5.4
+"Ukraine": 5.38
+"Hong Kong, SAR, China": 5.37
+"Senegal": 5.36
+"Zambia": 5.31
+"Uzbekistan": 5.27
+"Qatar": 5.25
+"Egypt": 5.22
+"Serbia": 5.21
+"Kazakhstan": 5.18
+"Bahrain": 5.16
+"Cuba": 9.99
+"Guyana": 5.16
+"Hungary": 5.16
+"Sri Lanka": 5.16
+"Malta": 5.15
+"Ghana": 5.13
+"Bahamas": 5.08
+"Dominican Republic": 5.08
+"Colombia": 5.05
+"Morocco": 5.04
+"Bulgaria": 5
+"Costa Rica": 4.97
+"Germany": 4.97
+"Vanuatu": 4.97
+"Mongolia": 4.96
+"Barbados": 4.91
+"Ecuador": 4.91
+"Paraguay": 4.91
+"Marshall Islands": 4.89
+"Peru": 4.88
+"Grenada": 4.85
+"Jordan": 4.85
+"United States": 4.83
+"Romania": 4.81
+"Jamaica": 4.78
+"Namibia": 4.78
+"Cyprus:" 4.77
+"Italy": 4.76
+"Tunisia": 4.75
+"Fiji": 4.73
+"Japan": 4.73
+"Singapore": 4.73
+"Mauritius": 4.65
+"Moldova": 4.64
+"Canada": 4.61
+"Seychelles": 4.6
+"Saint Lucia": 4.58
+"Samoa": 4.56
+"Netherlands": 4.53
+"South Korea": 4.51
+"Taiwan": 4.49
+"Poland": 4.49
+"Switzerland": 4.47
+"Belgium": 4.46
+"Argentina": 4.44
+"Ireland": 4.4
+"Slovakia": 4.38
+"Albania": 4.36
+"Montenegro": 4.33
+"Georgia": 4.32
+"Austria": 4.28
+"Chile": 4.28
+"Oman": 4.25
+"Spain": 4.24
+"Uruguay": 4.23
+"Brunei Darussalam": 4.22
+"North Macedonia": 4.2
+"Croatia": 4.18
+"Dominica": 4.17
+"Australia": 4.13
+"Botswana": 4.12
+"Trinidad and Tobago": 4.12
+"Liechtenstein": 4.11
+"Belize": 4.06
+"Israel": 4.06
+"Saint Vincent and the Grenadines": 4.05
+"United Kingdom": 4.04
+"Lithuania": 4.03
+"Latvia": 4.01
+"France": 3.99
+"Greece": 3.99
+"Antigua and Barbuda": 3.98
+"Armenia": 3.98
+"Luxembourg": 3.97
+"Nauru": 3.88
+"Portugal": 3.83
+"Czech Republic": 3.82
+"New Zealand": 3.76
+"Norway": 3.73
+"Slovenia": 3.49
+"Andorra": 3.48
+"Sweden": 3.48
+"Estonia": 3.25
+"Denmark": 3.18
+"San Marino": 3.08
+"Iceland": 3.04
+"Finland": 3.03
 };
 
 const countries = Object.keys(baselIndex);
