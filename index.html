@@ -14,7 +14,7 @@ body {
   padding:40px;
 }
 .container {
-  background:#1e293b;
+  background:#BA9425;
   padding:30px;
   border-radius:12px;
   width:420px;
@@ -77,7 +77,6 @@ button {
 </div>
 
 <script>
-// Updated Basel AML Index sample (2025-aligned values where applicable)
 const baselIndex = {
 "Myanmar": 8.18
 "Russia": 9.99
@@ -282,7 +281,7 @@ function calculateRisk(){
   const sow = document.getElementById("sow").value;
   const pep = document.getElementById("pep").checked;
 
-  const countryScore = baselIndex[country] || 5;
+  const countryScore = baselIndex[country] || 5.4;
 
   let level = "Low";
   let reasons = [];
