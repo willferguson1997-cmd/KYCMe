@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KYC Risk Tool (Final - Updated Basel)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: Arial;
+  background:#0f172a;
+  color:#e2e8f0;
+  display:flex;
+  justify-content:center;
+  padding:40px;
+}
+.container {
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+  width:420px;
+}
+select,input,button {
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border-radius:6px;
+  border:none;
+}
+button {
+  background:#2563eb;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+.result {
+  margin-top:20px;
+  padding:15px;
+  background:#020617;
+  border-radius:8px;
+}
+.high { color:#ef4444; }
+.low { color:#22c55e; }
+</style>
+</head>
+<body>
+
+<div class="container">
+<h2>KYC Risk Tool</h2>
+
+<select id="country"></select>
+<select id="nationality"></select>
+
+<select id="sow">
+<option value="">Source of Wealth</option>
+<option>Salary</option>
+<option>Business Ownership</option>
+<option>Crypto</option>
+<option>Gambling</option>
+<option>Offshore Holdings</option>
+</select>
+
+<select id="sof">
+<option value="">Source of Funds</option>
+<option>Bank Transfer</option>
+<option>Salary</option>
+<option>Cash Deposit</option>
+<option>Third-Party Transfer</option>
+</select>
+
+<label>
+  <input type="checkbox" id="pep"> Politically Exposed Person (PEP)
+</label>
+
+<button onclick="calculateRisk()">Calculate Risk</button>
+
+<div id="result" class="result" style="display:none;"></div>
+</div>
+
+<script>
+// Updated Basel AML Index sample (2025-aligned values where applicable)
+const baselIndex = {
+"United States": 3.5,
+"Switzerland": 2.8,
+"United Kingdom": 3.2,
+"Germany": 2.9,
+"France": 3.1,
+"Italy": 3.4,
+"United Arab Emirates": 5.9,
+"Russia": 6.5,
+"China": 7.26,
+"India": 5.1,
+"Brazil": 5.7,
+"Mexico": 6.0,
+"South Africa": 6.2,
+"Turkey": 6.8,
+"Afghanistan": 8.5,
+"Iran": 8.7,
+"North Korea": 8.9,
+"Syria": 8.6
+};
+
+const countries = Object.keys(baselIndex);
+
+// Populate dropdowns
+function populateDropdown(id){
+  const select = document.getElementById(id);
+  select.innerHTML = '<option value="">Select</option>';
+
+  countries.forEach(c => {
+    const opt = document.createElement("option");
+    opt.value = c;
+    opt.textContent = `${c} (${baselIndex[c]})`;
+    select.appendChild(opt);
+  });
+}
+
+populateDropdown("country");
+populateDropdown("nationality");
+
+function calculateRisk(){
+  const country = document.getElementById("country").value;
+  const sow = document.getElementById("sow").value;
+  const pep = document.getElementById("pep").checked;
+
+  const countryScore = baselIndex[country] || 5;
+
+  let level = "Low";
+  let reasons = [];
+
+  // Rule 1: High-risk jurisdiction
+  if (countryScore > 5.5) {
+    level = "High";
+    reasons.push("High-risk jurisdiction (Basel AML Index)");
+  }
+
+  // Rule 2: High-risk Source of Wealth
+  if (["Crypto", "Gambling", "Offshore Holdings"].includes(sow)) {
+    level = "High";
+    reasons.push("High-risk source of wealth");
+  }
+
+  // Rule 3: PEP override
+  if (pep) {
+    level = "High";
+    reasons.push("PEP status");
+  }
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.innerHTML = `
+    <p><strong>Country Basel Score:</strong> ${countryScore}</p>
+    <p><strong>Risk Level:</strong> <span class="${level.toLowerCase()}">${level}</span></p>
+    <p><strong>Explanation:</strong> ${reasons.join(", ") || "Low risk profile"}</p>
+  `;
+}
+</script>
+
+</body>
+</html>
